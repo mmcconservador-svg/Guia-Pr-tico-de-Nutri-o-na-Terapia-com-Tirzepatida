@@ -1,0 +1,27 @@
+# Dependências e saídas de build
+node_modules/
+dist/
+coverage/
+test-results/
+playwright-report/
+
+# Segredos e configuração local (use .env.example como modelo)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Dados de pacientes nunca devem ir para o repositório
+backups/
+*.backup.json
+pacientes/
+prontuarios/
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.log

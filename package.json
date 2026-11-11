@@ -1,0 +1,20 @@
+{
+  "name": "guia-pratico-nutricao-tirzepatida",
+  "version": "0.1.0",
+  "description": "Ferramentas interativas e painel para a consulta de nutrição na terapia com tirzepatida.",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "build": "node scripts/build.mjs --target=all",
+    "build:web": "node scripts/build.mjs --target=web",
+    "build:artifact": "node scripts/build.mjs --target=artifact",
+    "serve": "node scripts/serve.mjs",
+    "dev": "npm run build:web && npm run serve",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}
