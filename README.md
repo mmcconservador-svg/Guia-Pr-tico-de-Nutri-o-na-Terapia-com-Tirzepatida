@@ -104,4 +104,4 @@ docs/REFERENCIAS.md          equações e fontes
 ## Licença
 
 - **Código:** [MIT](LICENSE).
-- **Conteúdo (e-book, referências e textos das tabelas):** CC BY 4.0, veja [LICENSE-CONTEUDO.md](LICENSE-CONTEUDO.md).
+- **Conteúdo (e-book, referências e textos das tabelas):** CC BY-NC 4.0, veja [LICENSE-CONTEUDO.md](LICENSE-CONTEUDO.md).
