@@ -31,6 +31,10 @@ Ferramentas interativas para a consulta de nutrição de pacientes em uso de tir
 - Os **exames** da aba Suplementação geram alertas. As respostas da **anamnese** geram alertas de precaução.
 - Cada regra pode ser desligada em **Automações**.
 
+## E-book
+
+O e-book "Guia Prático de Nutrição na Terapia com Tirzepatida" está em [docs/EBOOK.md](docs/EBOOK.md). Traz as tabelas, o exemplo resolvido de GET e macros, a escolha da equação de composição corporal, a técnica de dobras, os 6 casos clínicos e o resumo da anamnese.
+
 ## Privacidade
 
 Tudo roda no navegador. Não há servidor, banco de dados nem análise de uso. Os dados ficam no `localStorage` do aparelho e podem ser exportados e importados em **Dados e backup**. As páginas abrem com dados fictícios de exemplo. Veja [SECURITY.md](SECURITY.md).
@@ -72,6 +76,7 @@ src/js/m_anam.js             anamnese
 src/js/m_app.js              landing e ambiente de aplicativo (menu lateral, tema, apresentação)
 scripts/                     build, servidor local e verificações
 tests/                       testes de navegador e de cálculo
+docs/EBOOK.md                e-book em Markdown, com as tabelas e os exemplos resolvidos
 docs/REFERENCIAS.md          equações e fontes
 ```
 
