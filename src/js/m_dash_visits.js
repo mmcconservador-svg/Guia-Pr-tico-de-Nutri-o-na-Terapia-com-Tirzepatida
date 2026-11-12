@@ -50,7 +50,7 @@ html:function(S){var p=S.p,c=T.c,v=T.vs(),L=v[v.length-1],m=c.macros(p),fi=T.fas
  var auto='<div class="panel stack"><h2>Automações</h2><p class="sm muted">Estas regras ligam as ferramentas entre si. Desligue as que não quiser.</p>'+
   T.chk('auto.prot','Proteína em g/kg definida pela fase da dose')+T.chk('auto.alertas','Gerar alertas a partir de consultas, exames e anamnese')+T.chk('auto.supp','Sinalizar suplementação quando um exame estiver baixo')+T.chk('auto.sx','Sugerir a textura das refeições pelos sintomas')+T.chk('auto.retorno','Sugerir a data de retorno')+T.chk('auto.peso','Atualizar o perfil ao registrar uma consulta')+
   '<div class="stack" style="gap:8px;margin-top:6px">'+(ret&&S.auto.retorno!==false?'<div class="al info">'+T.pill('Retorno','info')+'<div><b>'+T.fdate(ret.date)+'.</b> '+ret.why+'</div></div>':'')+
-  '<div class="al info">'+T.pill('Textura','info')+'<div><b>'+({liq:'Líquidas',past:'Pastosas',sol:'Sólidas'}[tx.t])+'.</b> '+tx.why+'</div>'+(T.cfg.mode==='hub'?'<button class="btn sm" data-act="go" data-v="meals">Ver opções</button>':'')+'</div></div></div>';
+  '<div class="al info">'+T.pill('Textura','info')+'<div><b>'+({liq:'Líquidas',past:'Pastosas',sol:'Sólidas'}[tx.t])+'.</b> '+tx.why+'</div>'+(T.hubish()?'<button class="btn sm" data-act="go" data-v="meals">Ver opções</button>':'')+'</div></div></div>';
  var res='<div class="panel stack"><div class="row sp"><h2>Resumo para o prontuário</h2><div class="row">'+T.copyBtn('resumo','Copiar resumo')+T.copyBtn('paciente','Copiar mensagem ao paciente')+'</div></div><pre class="txt">'+esc(T.resumo())+'</pre></div>';
  return '<div class="stack">'+kp+ph+A+charts+'<div class="cols">'+auto+res+'</div></div>';}});
 

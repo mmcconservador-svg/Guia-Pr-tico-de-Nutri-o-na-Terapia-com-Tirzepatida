@@ -1,58 +1,195 @@
 {
   "version": 1,
   "storagePrefix": "tirz.v1",
-  "hubOrder": ["dash", "visits", "comp", "get", "prot", "fat", "fib", "carb", "se", "meals", "supp", "anam"],
-  "shared": ["src/js/core.js"],
+  "hubOrder": [
+    "dash",
+    "visits",
+    "comp",
+    "get",
+    "prot",
+    "fat",
+    "fib",
+    "carb",
+    "se",
+    "meals",
+    "supp",
+    "anam"
+  ],
+  "shared": [
+    "src/js/core.js"
+  ],
   "bundles": {
     "dash_visits": "src/js/m_dash_visits.js",
     "comp": "src/js/m_comp.js",
     "get_prot": "src/js/m_get_prot.js",
     "fat_fib_carb": "src/js/m_fat_fib_carb.js",
     "se_meals_supp": "src/js/m_se_meals_supp.js",
-    "anam": "src/js/m_anam.js"
+    "anam": "src/js/m_anam.js",
+    "app": "src/js/m_app.js"
   },
   "pages": [
-    { "slug": "painel", "mode": "hub", "bundles": ["dash_visits", "comp", "get_prot", "fat_fib_carb", "se_meals_supp", "anam"],
+    {
+      "slug": "guia",
+      "mode": "app",
+      "bundles": [
+        "dash_visits",
+        "comp",
+        "get_prot",
+        "fat_fib_carb",
+        "se_meals_supp",
+        "anam",
+        "app"
+      ],
+      "title": "Guia Tirzepatida",
+      "description": "Landing page que roda como aplicativo: apresentação, menu lateral e todas as ferramentas ligadas ao mesmo paciente.",
+      "icon": "app"
+    },
+    {
+      "slug": "painel",
+      "mode": "hub",
+      "bundles": [
+        "dash_visits",
+        "comp",
+        "get_prot",
+        "fat_fib_carb",
+        "se_meals_supp",
+        "anam"
+      ],
       "title": "Painel Tirzepatida",
-      "description": "Painel que liga perfil, composição corporal, calculadoras, tabelas e anamnese, com alertas e resumos automáticos.", "icon": "dashboard" },
-    { "slug": "composicao-corporal", "mode": "tool", "mod": "comp", "bundles": ["comp"],
+      "description": "Painel que liga perfil, composição corporal, calculadoras, tabelas e anamnese, com alertas e resumos automáticos.",
+      "icon": "dashboard"
+    },
+    {
+      "slug": "composicao-corporal",
+      "mode": "tool",
+      "mod": "comp",
+      "bundles": [
+        "comp"
+      ],
       "title": "Avaliação da composição corporal",
-      "description": "Escolha da equação, dobras cutâneas com três leituras por ponto e casos clínicos.", "icon": "ruler" },
-    { "slug": "get-deficit-macros", "mode": "tool", "mod": "get", "bundles": ["get_prot"],
+      "description": "Escolha da equação, dobras cutâneas com três leituras por ponto e casos clínicos.",
+      "icon": "ruler"
+    },
+    {
+      "slug": "get-deficit-macros",
+      "mode": "tool",
+      "mod": "get",
+      "bundles": [
+        "get_prot"
+      ],
       "title": "Calculadora de GET, déficit e macronutrientes",
-      "description": "Taxa metabólica, gasto energético total, meta com déficit e macronutrientes.", "icon": "calculator" },
-    { "slug": "progressao-proteina", "mode": "tool", "mod": "prot", "bundles": ["get_prot"],
+      "description": "Taxa metabólica, gasto energético total, meta com déficit e macronutrientes.",
+      "icon": "calculator"
+    },
+    {
+      "slug": "progressao-proteina",
+      "mode": "tool",
+      "mod": "prot",
+      "bundles": [
+        "get_prot"
+      ],
       "title": "Tabela de progressão da proteína",
-      "description": "Meta de proteína por fase do escalonamento e montagem do dia com porções.", "icon": "table" },
-    { "slug": "gorduras-insaturadas", "mode": "tool", "mod": "fat", "bundles": ["fat_fib_carb"],
+      "description": "Meta de proteína por fase do escalonamento e montagem do dia com porções.",
+      "icon": "table"
+    },
+    {
+      "slug": "gorduras-insaturadas",
+      "mode": "tool",
+      "mod": "fat",
+      "bundles": [
+        "fat_fib_carb"
+      ],
       "title": "Tabela de gorduras insaturadas",
-      "description": "Fontes de gorduras mono, poli-insaturadas e ômega-3 em medidas caseiras.", "icon": "table" },
-    { "slug": "fibras-fitoquimicos", "mode": "tool", "mod": "fib", "bundles": ["fat_fib_carb"],
+      "description": "Fontes de gorduras mono, poli-insaturadas e ômega-3 em medidas caseiras.",
+      "icon": "table"
+    },
+    {
+      "slug": "fibras-fitoquimicos",
+      "mode": "tool",
+      "mod": "fib",
+      "bundles": [
+        "fat_fib_carb"
+      ],
       "title": "Tabela de fibras e fitoquímicos",
-      "description": "Fibras por medida caseira, fitoquímicos e potencial de gases.", "icon": "table" },
-    { "slug": "carboidratos-por-volume", "mode": "tool", "mod": "carb", "bundles": ["fat_fib_carb"],
+      "description": "Fibras por medida caseira, fitoquímicos e potencial de gases.",
+      "icon": "table"
+    },
+    {
+      "slug": "carboidratos-por-volume",
+      "mode": "tool",
+      "mod": "carb",
+      "bundles": [
+        "fat_fib_carb"
+      ],
       "title": "Tabela de carboidratos por volume",
-      "description": "Carboidratos em medidas caseiras, trocas de 15 g e prato por refeição.", "icon": "table" },
-    { "slug": "efeitos-colaterais", "mode": "tool", "mod": "se", "bundles": ["se_meals_supp"],
+      "description": "Carboidratos em medidas caseiras, trocas de 15 g e prato por refeição.",
+      "icon": "table"
+    },
+    {
+      "slug": "efeitos-colaterais",
+      "mode": "tool",
+      "mod": "se",
+      "bundles": [
+        "se_meals_supp"
+      ],
       "title": "Manejo dos efeitos colaterais",
-      "description": "Estratégias nutricionais por sintoma e sinais de alerta.", "icon": "table" },
-    { "slug": "refeicoes-liquidas-pastosas-solidas", "mode": "tool", "mod": "meals", "bundles": ["se_meals_supp"],
+      "description": "Estratégias nutricionais por sintoma e sinais de alerta.",
+      "icon": "table"
+    },
+    {
+      "slug": "refeicoes-liquidas-pastosas-solidas",
+      "mode": "tool",
+      "mod": "meals",
+      "bundles": [
+        "se_meals_supp"
+      ],
       "title": "Refeições líquidas, pastosas e sólidas",
-      "description": "Opções por textura com calorias e proteína, e montagem do dia.", "icon": "table" },
-    { "slug": "suplementacao", "mode": "tool", "mod": "supp", "bundles": ["se_meals_supp"],
+      "description": "Opções por textura com calorias e proteína, e montagem do dia.",
+      "icon": "table"
+    },
+    {
+      "slug": "suplementacao",
+      "mode": "tool",
+      "mod": "supp",
+      "bundles": [
+        "se_meals_supp"
+      ],
       "title": "Suplementação conforme a deficiência",
-      "description": "Interpretação de exames e condutas de suplementação por nutriente.", "icon": "table" },
-    { "slug": "anamnese", "mode": "tool", "mod": "anam", "bundles": ["anam"],
+      "description": "Interpretação de exames e condutas de suplementação por nutriente.",
+      "icon": "table"
+    },
+    {
+      "slug": "anamnese",
+      "mode": "tool",
+      "mod": "anam",
+      "bundles": [
+        "anam"
+      ],
       "title": "Ficha de anamnese com tirzepatida",
-      "description": "Anamnese para antes, durante e após o uso da tirzepatida.", "icon": "form" }
+      "description": "Anamnese para antes, durante e após o uso da tirzepatida.",
+      "icon": "form"
+    }
   ],
   "csp": {
-    "default-src": ["'none'"],
-    "style-src": ["'unsafe-inline'", "https://fonts.googleapis.com"],
-    "font-src": ["https://fonts.gstatic.com"],
-    "img-src": ["data:"],
-    "base-uri": ["'none'"],
-    "form-action": ["'none'"]
+    "default-src": [
+      "'none'"
+    ],
+    "style-src": [
+      "'unsafe-inline'",
+      "https://fonts.googleapis.com"
+    ],
+    "font-src": [
+      "https://fonts.gstatic.com"
+    ],
+    "img-src": [
+      "data:"
+    ],
+    "base-uri": [
+      "'none'"
+    ],
+    "form-action": [
+      "'none'"
+    ]
   },
   "fonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
 }

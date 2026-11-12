@@ -124,7 +124,7 @@ T.seg=function(path,opts,t){var v=String(T.get(path));return '<div class="seg" r
 T.chips=function(path,opts){var a=T.get(path)||[];return '<div class="row">'+opts.map(function(x){return '<button type="button" class="chip" data-tog="'+path+'" data-v="'+esc(x[0])+'" aria-pressed="'+(a.indexOf(x[0])>=0)+'">'+esc(x[1])+'</button>';}).join('')+'</div>';};
 T.cnt=function(path,id){var n=(T.get(path)||{})[id]||0;return '<span class="cnt"><button type="button" data-cnt="'+path+'" data-id="'+id+'" data-d="-1" aria-label="Diminuir">−</button><span>'+n+'</span><button type="button" data-cnt="'+path+'" data-id="'+id+'" data-d="1" aria-label="Aumentar">+</button></span>';};
 T.pill=function(txt,k){return '<span class="pill '+(k||'')+'">'+txt+'</span>';};
-T.alert=function(a){var lab={bad:'Urgente',warn:'Atenção',info:'Nota',ok:'Ok'}[a.lvl];return '<div class="al '+a.lvl+'">'+T.pill(lab,a.lvl)+'<div>'+esc(a.t)+'</div>'+(a.go&&T.cfg.mode==='hub'&&T.mods[a.go]?'<button class="btn sm" data-act="go" data-v="'+a.go+'">Abrir '+esc(T.mods[a.go].tab)+'</button>':'')+'</div>';};
+T.alert=function(a){var lab={bad:'Urgente',warn:'Atenção',info:'Nota',ok:'Ok'}[a.lvl];return '<div class="al '+a.lvl+'">'+T.pill(lab,a.lvl)+'<div>'+esc(a.t)+'</div>'+(a.go&&T.hubish()&&T.mods[a.go]?'<button class="btn sm" data-act="go" data-v="'+a.go+'">Abrir '+esc(T.mods[a.go].tab)+'</button>':'')+'</div>';};
 T.copyBtn=function(name,label){return '<button class="btn sm" data-act="copy" data-v="'+name+'">'+(label||'Copiar texto')+'</button>';};
 T.hm=function(n){n=num(n);return '<span class="hm h'+(n>=7?3:n>=4?2:n>=2?1:0)+'">'+n+'</span>';};
 T.bar=function(parts){return '<div class="mbar">'+parts.map(function(x){return '<i style="width:'+Math.max(0,x[0])+'%;background:'+x[1]+'"></i>';}).join('')+'</div>';};
@@ -144,7 +144,11 @@ T.acts.export=function(){T.copy(JSON.stringify(T.S));};
 T.acts.import=function(){var el=document.getElementById('imp');try{var o=JSON.parse(el.value);T.S=merge(T.def(),o);T.save();T.render();T.flash('Dados importados');}catch(e){T.flash('Texto inválido. Cole o backup completo.');}};
 T.acts.dados=function(){T.set('ui.dados',!T.S.ui.dados);};
 
+T.hubish=function(){return T.cfg.mode==='hub'||T.cfg.mode==='app';};
+T.strip=function(S){var p=S.p;return (p.exemplo?'<div class="ban noprs"><span>Dados de exemplo. Substitua pelos dados do paciente.</span><button class="btn sm" data-act="blank">Começar ficha em branco</button></div>':'')+'<section class="strip noprs" aria-label="Perfil do paciente">'+T.in('p.nome',{l:'Paciente',t:'text',cls:'wide'})+T.sel('p.sexo',[['F','Feminino'],['M','Masculino']],{l:'Sexo'})+T.in('p.idade',{l:'Idade (anos)'})+T.in('p.peso',{l:'Peso atual (kg)'})+T.in('p.altura',{l:'Altura (cm)'})+T.sel('p.dose',T.doses,{l:'Dose semanal'})+T.in('p.semana',{l:'Semana de uso'})+'</section>';};
+T.dados=function(S){return S.ui.dados?'<section class="panel noprs" style="margin-bottom:14px"><h3>Dados e backup</h3><p class="sm muted">Os dados ficam apenas neste navegador e não são enviados a lugar nenhum. Copie o backup para guardar no prontuário ou levar a outro aparelho.</p><div class="row" style="margin:10px 0"><button class="btn" data-act="export">Copiar backup</button><button class="btn" data-act="reset">Restaurar exemplo</button></div><label class="fld"><span>Colar backup para importar</span><textarea id="imp" rows="3"></textarea></label><div style="margin-top:8px"><button class="btn pri" data-act="import">Importar</button></div></section>':'';};
 T.shell=function(){
+ if(T.cfg.mode==='app'&&T.shellApp)return T.shellApp();
  var S=T.S,p=S.p,cfg=T.cfg,hub=cfg.mode==='hub',cur=hub?(T.mods[S.ui.tab]?S.ui.tab:'dash'):cfg.mod,m=T.mods[cur];
  var h='<div class="wrap"><header class="hd"><div><p class="eyebrow">Nutrição clínica · tirzepatida</p><h1>'+esc(hub?'Painel Tirzepatida':m.title)+'</h1>'+
   '<p class="sub">'+esc(hub?'Perfil do paciente, calculadoras, tabelas e anamnese ligados entre si. Altere um dado e as metas, alertas e sugestões se atualizam.':m.desc)+'</p></div>'+

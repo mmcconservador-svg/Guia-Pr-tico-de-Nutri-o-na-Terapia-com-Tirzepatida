@@ -1,6 +1,6 @@
 # Guia Prático de Nutrição na Terapia com Tirzepatida
 
-Ferramentas interativas para a consulta de nutrição de pacientes em uso de tirzepatida: calculadoras, tabelas dinâmicas, avaliação da composição corporal, ficha de anamnese e um painel que liga tudo. Cada ferramenta funciona sozinha, em uma página própria, e todas também aparecem como abas do **Painel Tirzepatida**.
+Ferramentas interativas para a consulta de nutrição de pacientes em uso de tirzepatida: calculadoras, tabelas dinâmicas, avaliação da composição corporal, ficha de anamnese e um painel que liga tudo. Cada ferramenta funciona sozinha, em uma página própria. Todas também aparecem como abas do **Painel Tirzepatida** e como itens do menu do **Guia Tirzepatida**, a versão em formato de aplicativo com landing page.
 
 > **Aviso.** Material de apoio ao raciocínio clínico do profissional de saúde. Não substitui avaliação individual, exames nem a prescrição médica. Valores de alimentos são médias aproximadas. Confira rótulos e tabelas oficiais.
 
@@ -8,6 +8,7 @@ Ferramentas interativas para a consulta de nutrição de pacientes em uso de tir
 
 | Página | O que faz |
 | --- | --- |
+| **Guia Tirzepatida** (`guia`) | Landing page que roda como aplicativo. Abre com uma apresentação (escada de doses interativa, mapa das ferramentas e como se ligam) e passa, em um clique, para o ambiente do app com menu lateral, tema claro e escuro, modo apresentação e todas as ferramentas com o mesmo paciente. |
 | **Painel Tirzepatida** (`painel`) | Perfil único do paciente, indicadores, gráficos de peso, proteína, massa magra e sintomas, pontos de atenção, retorno sugerido, resumo para o prontuário e mensagem ao paciente. |
 | Registro de consultas (aba do painel) | Peso, cintura, gordura corporal, proteína, água, sintomas 0 a 10 e sinais de alerta. Ao salvar, atualiza o perfil e todos os alertas. |
 | **Avaliação da composição corporal** (`composicao-corporal`) | Escolhe a equação mais adequada ao perfil, recebe dobras cutâneas com 3 leituras por ponto (usa a mediana), compara 6 equações, calcula massa magra e gorda, risco metabólico e traz 6 casos clínicos carregáveis. |
@@ -45,7 +46,7 @@ npm run check            # sintaxe, configuração e padrões inseguros
 npm run build            # gera dist/web e dist/artifact
 npm run dev              # build + servidor em http://127.0.0.1:5173
 npx playwright install chromium
-npm test                 # 15 testes de navegador e de cálculo
+npm test                 # 18 testes de navegador e de cálculo
 ```
 
 Há também um **devcontainer** em `.devcontainer/` (usuário sem privilégios, `--cap-drop=ALL`, `no-new-privileges`, instalação com `--ignore-scripts`).
@@ -68,6 +69,7 @@ src/js/m_get_prot.js         GET e macros, progressão da proteína
 src/js/m_fat_fib_carb.js     gorduras, fibras e carboidratos
 src/js/m_se_meals_supp.js    efeitos colaterais, refeições por textura, suplementação
 src/js/m_anam.js             anamnese
+src/js/m_app.js              landing e ambiente de aplicativo (menu lateral, tema, apresentação)
 scripts/                     build, servidor local e verificações
 tests/                       testes de navegador e de cálculo
 docs/REFERENCIAS.md          equações e fontes
